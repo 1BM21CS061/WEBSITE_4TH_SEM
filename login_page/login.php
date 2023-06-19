@@ -1,22 +1,22 @@
 <?php
  $mail=$_POST['mail'];
  $psw=$_POST['psw'];
- $cpsw=$_POST['cpsw'];
+
 //database connection//
-$conn=new mysqli('localhost', 'root','', 'signup');
+$conn=new mysqli('localhost', 'root','', 'hospital_database');
 if($conn->connect_error){
     die('Connection Failed: ' .$conn->connect_error);
 }
 else{
-    $stmt=$conn->prepare("insert into signin(mail, psw, cpsw) values(?, ?, ?)");
-    $stmt->bind_param("sss",$mail, $psw, $cpsw);
+    $stmt=$conn->prepare("insert into signup(mail_id, psw) values(?, ?)");
+    $stmt->bind_param("ss",$mail, $psw);
     try
     {
         $stmt->execute();
         sleep(2);
         echo "Signed in successfully";
         // Redirect browser
-        header("Location: http://localhost/WEB_DEV\login_page\loginpage.html");
+        header("Location: http://localhost/WEB_DEV/registration/registration.html");
     
         exit;
     }
