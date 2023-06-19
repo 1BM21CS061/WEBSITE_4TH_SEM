@@ -2,7 +2,7 @@
     $servername = "localhost";
     $username = "root";
     $password="";
-    $conn = new mysqli('localhost','root','','patient_registration');
+    $conn = new mysqli('localhost','root','','hospital_database');
     $customer_name_first = $_POST['fname'];
     $street_address = $_POST['street_address'];
     $city = $_POST['city'];
@@ -21,11 +21,11 @@
     }
     else
     {
-        $stmt = $conn->prepare("insert into registration(customer_name_first,street_address,city,state,postal,country,phone_number_1,phone_number_2,email,date)values(?,?,?,?,?,?,?,?,?,?)");
+        $stmt = $conn->prepare("insert into registration(email,customer_name_first,street_address,city,state,postal,country,phone_number_1,phone_number_2,date)values(?,?,?,?,?,?,?,?,?,?)");
         $stmt->bind_param("ssssisiisd",$customer_name_first,$street_address,$city,$state,$postal,$country,$phone_number_1,$phone_number_2,$email,$date);
         $stmt->execute();
         echo "Registration Succesful";
-        header("Location: http://localhost/WEB_DEV/homepage_(in_use)/webpage.html");
+        header("Location: http://localhost/WEB_DEV/login_page/loginpage.html");
         $stmt->close();
         $conn->close();
 
