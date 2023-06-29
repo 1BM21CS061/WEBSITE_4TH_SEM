@@ -2,7 +2,7 @@ const forms=document.querySelector(".forms"),
     pwShowHide=document.querySelectorAll(".eye-icon"),
       links=document.querySelectorAll(".link");
 
-let button = document.getElementById("button");
+let button = document.getElementById("submit");
 
 pwShowHide.forEach(eyeIcon=>{
     eyeIcon.addEventListener("click",()=>{
