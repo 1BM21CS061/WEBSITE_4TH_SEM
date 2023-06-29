@@ -21,7 +21,7 @@
     }
     else
     {
-        $stmt = $conn->prepare("insert into registration(email,customer_name_first,street_address,city,state,postal,country,phone_number_1,phone_number_2,date)values(?,?,?,?,?,?,?,?,?,?)");
+        $stmt = $conn->prepare("insert into registration(customer_name_first,street_address,city,state,postal,country,phone_number_1,phone_number_2,email,date)values(?,?,?,?,?,?,?,?,?,?)");
         $stmt->bind_param("ssssisiisd",$customer_name_first,$street_address,$city,$state,$postal,$country,$phone_number_1,$phone_number_2,$email,$date);
         $stmt->execute();
         echo "Registration Succesful";
