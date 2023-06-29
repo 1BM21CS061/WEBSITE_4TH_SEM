@@ -33,12 +33,40 @@ var letter = document.getElementById("letter");
 var capital = document.getElementById("capital");
 var number = document.getElementById("number");
 var length = document.getElementById("length");
+let mail = document.getElementById("mail");
+const apiUrl = 'http://localhost/api_signup.php/signup';
 
 
 function checkPassword() {
     if (cp.value !== myInput.value) {
-        console.log("check");
+        //console.log("check");
         alert("Passwords don't match!");
+    }
+    else 
+    {
+      let data = {
+        mail_id:mail.value,
+        psw:myInput.value
+      };
+      
+    let options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(data)
+    };
+      
+    fetch(apiUrl, options)
+        .then(function(response) {
+          return response;
+        })
+        .then(function(jsonData) {
+          console.log(jsonData);
+          window.location.assign("http://localhost/WEB_DEV/registration/registration.html");
+          alert("Login Successfully");
+        });
     }
 }
 
@@ -94,4 +122,3 @@ myInput.onkeyup = function() {
 }
 
 button.onclick = checkPassword;  
-
