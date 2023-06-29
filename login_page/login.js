@@ -2,7 +2,7 @@ const forms=document.querySelector(".forms"),
     pwShowHide=document.querySelectorAll(".eye-icon"),
       links=document.querySelectorAll(".link");
 
-let button = document.getElementById("submit");
+let button = document.getElementById("button");
 
 pwShowHide.forEach(eyeIcon=>{
     eyeIcon.addEventListener("click",()=>{
@@ -36,8 +36,9 @@ var length = document.getElementById("length");
 
 
 function checkPassword(){
-  if(cp.value!=myInput.value)
+  if(cp.value!==myInput.value)
 {
+  console.log("check");
   alert("Passwords don't match!");
 }
 }
