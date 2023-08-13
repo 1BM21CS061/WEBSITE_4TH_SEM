@@ -39,7 +39,6 @@ const apiUrl = 'http://localhost/api_signup.php/signup';
 
 function checkPassword() {
     if (cp.value !== myInput.value) {
-        //console.log("check");
         alert("Passwords don't match!");
     }
     else 
